@@ -1,16 +1,20 @@
 $(document).ready(async function(){
     let response;
     setInterval(async ()=>{
+        let start = new Date().getSeconds();
         response = await axios.get("/polling");
         if(response.data.data === null){
+            console.log( start, response.data.data)
             $("#messages").text("null")
-            return 
         }
-        $("#messages").text("");
-        for(let i =0; i<response.data.data.length; i++){
-            let messageElem = document.createElement('div');
-            messageElem.textContent = response.data.data[i];
-            document.getElementById('messages').prepend(messageElem);
+        else{
+            console.log(start)
+            $("#messages").text("");
+            for(let i =0; i<response.data.data.length; i++){
+                let messageElem = document.createElement('div');
+                messageElem.textContent = response.data.data[i];
+                document.getElementById('messages').prepend(messageElem);
+            }
         }
     },2000)
     // for(let i=0; i < Number.POSITIVE_INFINITY; i++){
