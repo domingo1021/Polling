@@ -31,7 +31,7 @@ app.post("/data", (req, res)=>{
     const inboundIP = req.header('x-forwarded-for') || req.socket.remoteAddress;
     return res.send(`${inboundIP} says ${data}`);
 })
-app.delete("/data", (req, res)=>{
+app.delete("/Deletedata", (req, res)=>{
     fakeData = []
     return res.send("Delete all");
 })

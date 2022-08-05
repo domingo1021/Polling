@@ -29,3 +29,14 @@ $("#submit-btn").click(async function(){
         $("#messages").text("錯誤產生")
     }
 })
+
+$("#clear-btn").click(async function(){
+    console.log("clear clicked")
+    try {
+        // await axios.delete("/data")
+        await axios.delete("/Deletedata")
+        $("#messages").text("")
+    } catch (error) {
+        $("#messages").text("錯誤產生")
+    }
+})
